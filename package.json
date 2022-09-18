@@ -2,15 +2,12 @@
   "name": "weather-app-with-web-scrapping",
   "version": "1.0.0",
   "description": "",
-  "source": "src/index.html",
+  "source": "index.js",
   "engines": {
     "node": "14.x"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel",
-    "build": "rm -rf dist && parcel build",
-    "api": "ts-node src/api/index.ts"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
