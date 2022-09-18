@@ -25,6 +25,15 @@ const response = await fetch('http://localhost:8080/api/:cityName');
 const data = await response.json();
 ```
 
+or
+
+```javascript
+const response = await fetch(
+  'https://weather-app-elacin.herokuapp.com/api/:cityName'
+);
+const data = await response.json();
+```
+
 Response data type is an array of objects.
 
 ```javascript
