@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <nav
+        class="navbar navbar-dark bg-dark border-bottom border-secondary border-2"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Weather App</a>
+        </div>
+      </nav>
+
+      <div
+        class="d-flex justify-content-center align-items-center my-5"
+        id="form-container"
+      >
+        <form class="row g-2 justify-content-center align-items-center">
+          <div class="col-auto">
+            <input
+              type="text"
+              class="form-control"
+              id="inputCity"
+              placeholder="Please enter your city"
+              name="city"
+            />
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="container-xl flex-grow-1">
+        <ul id="weather-container" class="list-group my-5"></ul>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="../node_modules/bootstrap/dist/js/bootstrap.min.js"
+    ></script>
+    <script type="module" src="app.ts"></script>
+  </body>
+</html>
