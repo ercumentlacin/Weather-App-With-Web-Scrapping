@@ -1,16 +1,7 @@
-import express, { Request, Response } from 'express';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 
-import path from 'path';
-
 import { Weather, WeatherType } from '../model/Weather';
-
-const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../../dist')));
 
 function createWeatherData(weatherContainer: cheerio.Cheerio) {
   const lengthOfWeather = weatherContainer.children().length;
@@ -35,15 +26,10 @@ function createWeatherData(weatherContainer: cheerio.Cheerio) {
   return weatherDataList;
 }
 
-async function fetchCity(cityName: string) {
+export async function fetchCity(cityName: string) {
   try {
     const { data: html } = await axios.get(
-      `https://www.havadurumu15gunluk.net/havadurumu/${cityName}-hava-durumu-15-gunluk.html`,
-      {
-        headers: {
-          //  fix cors error
-        },
-      }
+      `https://www.havadurumu15gunluk.net/havadurumu/${cityName}-hava-durumu-15-gunluk.html`
     );
     const $ = cheerio.load(html);
 
@@ -57,17 +43,3 @@ async function fetchCity(cityName: string) {
     console.error(error);
   }
 }
-
-app.get('/', (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, '../../dist'));
-});
-
-app.get('/api/:cityName', async (req: Request, res: Response) => {
-  const cityName = req.params.cityName;
-  const weatherDataList = await fetchCity(cityName);
-  res.status(200).json(weatherDataList);
-});
-
-app.listen(8080, () => {
-  console.log('Server is running on http://localhost:8080');
-});
