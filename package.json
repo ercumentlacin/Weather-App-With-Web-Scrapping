@@ -2,8 +2,10 @@
   "name": "weather-app-with-web-scrapping",
   "version": "1.0.0",
   "description": "",
-  "source": "src/index.html",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "source": "dist/index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "start": "node dist/index.js",
     "build": "rm -rf dist && tsc",
