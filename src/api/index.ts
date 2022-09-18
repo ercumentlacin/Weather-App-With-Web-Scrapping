@@ -1,10 +1,10 @@
-import { Request, Response } from 'express';
-import { Weather, WeatherType } from '../model/Weather';
+import express, { Request, Response } from 'express';
+import axios from 'axios';
+import * as cheerio from 'cheerio';
 
-const express = require('express');
-const axios = require('axios');
-const cheerio = require('cheerio');
-const path = require('path');
+import path from 'path';
+
+import { Weather, WeatherType } from '../model/Weather';
 
 const app = express();
 
@@ -58,7 +58,7 @@ async function fetchCity(cityName: string) {
   }
 }
 
-app.get('/', (_, res: Response) => {
+app.get('/', (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '../../dist'));
 });
 
