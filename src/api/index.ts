@@ -3,7 +3,7 @@ import * as cheerio from 'cheerio';
 
 import { Weather, WeatherType } from '../model/Weather';
 
-function createWeatherData(weatherContainer: cheerio.Cheerio) {
+export function createWeatherData(weatherContainer: cheerio.Cheerio) {
   const lengthOfWeather = weatherContainer.children().length;
   const weatherDataList: WeatherType[] = [];
 
@@ -39,7 +39,5 @@ export async function fetchCity(cityName: string) {
     const weatherDataList: WeatherType[] = createWeatherData(weatherContainer);
 
     return weatherDataList;
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (error) {}
 }

@@ -24,6 +24,7 @@ export default class App {
     this.app.get('/api/:cityName', async (req: Request, res: Response) => {
       const cityName = req.params.cityName.toLocaleLowerCase();
       const weatherDataList = await fetchCity(cityName);
+      console.log({ weatherDataList });
       res.status(200).json(weatherDataList);
     });
 
