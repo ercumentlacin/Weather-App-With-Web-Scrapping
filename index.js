@@ -221,6 +221,8 @@ app.get('/api/:cityName', function (req, res) {
     });
   });
 });
-app.listen(8080, function () {
-  console.log('Server is running on http://localhost:8080');
+app.listen(process.env.PORT || 8080, function () {
+  console.log(
+    `Server is running on http://localhost:${process.env.PORT || 8080}`
+  );
 });
