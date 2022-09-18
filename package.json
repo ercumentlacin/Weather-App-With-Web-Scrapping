@@ -6,7 +6,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel",
-    "build": "rm -rf dist && parcel build",
+    "build": "rm -rf dist && tsc",
     "dev": "ts-node src/index.ts",
     "test": "jest --watchAll"
   },
